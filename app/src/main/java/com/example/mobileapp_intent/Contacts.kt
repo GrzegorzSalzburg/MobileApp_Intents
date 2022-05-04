@@ -3,12 +3,15 @@ package com.example.mobileapp_intent
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 import android.widget.EditText
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import androidx.appcompat.app.AppCompatActivity
+
 
 const val REQUEST_SELECT_PHONE_NUMBER = 1
 
@@ -16,6 +19,7 @@ class Contacts : AppCompatActivity() {
 
     private lateinit var etnumbervar: EditText
     private lateinit var etnamevar:EditText
+    private val TAG = "MyActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,29 +32,48 @@ class Contacts : AppCompatActivity() {
         actionBar!!.title = "ContactsPage"
         actionBar.setDisplayHomeAsUpEnabled(true)
 
-        etnumbervar.setOnClickListener {
-            val i = Intent(Intent.ACTION_PICK)
-            i.type=ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE //what type of data
-            startActivityForResult(i,111)
-        }
-
-        fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-             super.onActivityResult(requestCode,resultCode,data)
-             if (requestCode == REQUEST_SELECT_PHONE_NUMBER && resultCode == Activity.RESULT_OK) {
+        /*val activityResultLaunch = registerForActivityResult(StartActivityForResult()){ result ->
+            if (requestCode == REQUEST_SELECT_PHONE_NUMBER && resultCode == Activity.RESULT_OK) {
                 // Get the URI and query the content provider for the phone number
-                val contactUri: Uri = data?.data?:return
+                val contactUri: Uri = data?.data
                 val nndata: Array<String> = arrayOf(ContactsContract.CommonDataKinds.Phone.NUMBER,
-                                                        ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
+                    ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
 
                 val cr = contentResolver.query(contactUri, nndata, null, null, null)
+                Log.d(TAG, "cr part")
 
                 if (cr?.moveToFirst()!!) {
                     etnumbervar.setText(cr.getString(0))
                     etnamevar.setText(cr.getString(1))
                 }
             }
+        }*/
+
+        etnumbervar.setOnClickListener {
+            val i = Intent(Intent.ACTION_PICK)
+            i.type=ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE //what type of data
+            startActivityForResult(i, 111)
+           /* activityResultLaunch.launch(i)*/
         }
-        val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+
+/*        fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+             super.onActivityResult(requestCode,resultCode,data)
+             if (requestCode == REQUEST_SELECT_PHONE_NUMBER && resultCode == Activity.RESULT_OK) {
+                 // Get the URI and query the content provider for the phone number
+                 val contactUri: Uri = data?.data?:return
+                 val nndata: Array<String> = arrayOf(ContactsContract.CommonDataKinds.Phone.NUMBER,
+                                                        ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
+
+                 val cr = contentResolver.query(contactUri, nndata, null, null, null)
+                 Log.d(TAG, "cr part")
+
+                 if (cr?.moveToFirst()!!) {
+                     etnumbervar.setText(cr.getString(0))
+                     etnamevar.setText(cr.getString(1))
+                 }
+             }
+        }*/
+/*        val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val intent = result.data
@@ -61,7 +84,7 @@ class Contacts : AppCompatActivity() {
 
         fun openActivityForResult() {
             startForResult.launch(Intent(this, startForResult::class.java))
-        }
+        }*/
 
     }
 }
