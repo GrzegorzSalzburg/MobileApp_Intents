@@ -1,9 +1,15 @@
 package com.example.mobileapp_intent
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
+import android.provider.Settings
 import android.widget.Button
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,23 +27,44 @@ class MainActivity : AppCompatActivity() {
         button3var =findViewById<Button>(R.id.buttonact3)
         button4var =findViewById<Button>(R.id.buttonact4)
 
+        fun openWebPage(url: String) {
+            val webpage: Uri = Uri.parse(url)
+            val intent = Intent(Intent.ACTION_VIEW, webpage)
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            }
+        }
+
+        fun openSettings() {
+            val intent = Intent(Settings.ACTION_SETTINGS)
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            }
+        }
+
+
+
+
+        //web
         button1var.setOnClickListener {
-            val intent = Intent(this, Contacts::class.java)
-            startActivity(intent)
+            openWebPage("https://pwr.edu.pl/")
         }
 
+        //settings
         button2var.setOnClickListener {
-            val intent = Intent(this, Messages::class.java)
-            startActivity(intent)
+            openSettings()
         }
 
+
+        //photo
         button3var.setOnClickListener {
-            val intent = Intent(this, Map::class.java)
+            val intent = Intent(this, Picture::class.java)
             startActivity(intent)
         }
 
+        //student
         button4var.setOnClickListener {
-            val intent = Intent(this, Suprise::class.java)
+            val intent = Intent(this, Student::class.java)
             startActivity(intent)
         }
 

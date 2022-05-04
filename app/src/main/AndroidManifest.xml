@@ -10,21 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileApp_intent">
         <activity
-            android:name=".Suprise"
+            android:name=".Picture"
             android:exported="false"
             android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".Map"
+            android:name=".Student"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
-        <activity
-            android:name=".Messages"
-            android:exported="false"
-            android:parentActivityName=".MainActivity"/>
-        <activity
-            android:name=".Contacts"
-            android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
