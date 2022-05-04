@@ -1,11 +1,10 @@
+/*Grzegoz Salzburg 252912*/
 package com.example.mobileapp_intent
 
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.provider.Settings
 import android.widget.Button
 
@@ -42,9 +41,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
-
-
         //web
         button1var.setOnClickListener {
             openWebPage("https://pwr.edu.pl/")
@@ -55,13 +51,13 @@ class MainActivity : AppCompatActivity() {
             openSettings()
         }
 
-
         //photo
         button3var.setOnClickListener {
             val intent = Intent(this, Picture::class.java)
             startActivity(intent)
         }
 
+        //Jak na razie nie ma w tym nic - do zrobienia
         //student
         button4var.setOnClickListener {
             val intent = Intent(this, Student::class.java)
