@@ -1,4 +1,4 @@
-/*Grzegoz Salzburg 252912*/
+/*Grzegorz Salzburg 252912*/
 package com.example.mobileapp_intent
 
 import android.content.Intent
@@ -21,10 +21,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button1var =findViewById<Button>(R.id.buttonact1)
-        button2var =findViewById<Button>(R.id.buttonact2)
-        button3var =findViewById<Button>(R.id.buttonact3)
-        button4var =findViewById<Button>(R.id.buttonact4)
+        button1var =findViewById(R.id.buttonact1)
+        button2var =findViewById(R.id.buttonact2)
+        button3var =findViewById(R.id.buttonact3)
+        button4var =findViewById(R.id.buttonact4)
 
         fun openWebPage(url: String) {
             val webpage: Uri = Uri.parse(url)
@@ -57,8 +57,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //Jak na razie nie ma w tym nic - do zrobienia
-        //student
+        //index
         button4var.setOnClickListener {
             val intent = Intent(this, Student::class.java)
             startActivity(intent)

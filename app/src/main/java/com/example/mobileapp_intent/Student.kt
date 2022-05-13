@@ -5,14 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
-
-
 
 class Student : AppCompatActivity() {
 
-    private lateinit var check_bt: Button
-    private lateinit var index_et: EditText
+    private lateinit var checkbtvar: Button
+    private lateinit var indexetvar: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,11 +19,11 @@ class Student : AppCompatActivity() {
         actionBar!!.title = "Student"
         actionBar.setDisplayHomeAsUpEnabled(true)
 
-        check_bt = findViewById(R.id.checkbt)
-        index_et = findViewById(R.id.indexet)
+        checkbtvar = findViewById(R.id.checkbt)
+        indexetvar = findViewById(R.id.indexet)
 
-        check_bt.setOnClickListener {
-            val index = index_et.text.toString()
+        checkbtvar.setOnClickListener {
+            val index = indexetvar.text.toString()
             val intent = Intent(this, StudentResult::class.java).apply {
                 putExtra("index_data", index)
             }

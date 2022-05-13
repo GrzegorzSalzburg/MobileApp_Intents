@@ -8,11 +8,10 @@ import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageView
 
-
+const val REQUEST_IMAGE_CAPTURE = 1
 
 class Picture : AppCompatActivity() {
 
-    val REQUEST_IMAGE_CAPTURE = 1
     private lateinit var photobuttonvar: Button
     private lateinit var photoimagevar: ImageView
 
