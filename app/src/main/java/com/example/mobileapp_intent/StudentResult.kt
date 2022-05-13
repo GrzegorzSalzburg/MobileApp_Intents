@@ -5,9 +5,10 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
 
-private lateinit var result_tv: TextView
-
 class StudentResult : AppCompatActivity() {
+
+    private lateinit var result_tv: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_result)

@@ -7,10 +7,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 
-private lateinit var check_bt: Button
-private lateinit var index_et: EditText
+
 
 class Student : AppCompatActivity() {
+
+    private lateinit var check_bt: Button
+    private lateinit var index_et: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student)
