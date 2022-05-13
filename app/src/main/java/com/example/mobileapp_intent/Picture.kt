@@ -29,7 +29,7 @@ class Picture : AppCompatActivity() {
         setContentView(R.layout.activity_picture)
 
         val actionBar = supportActionBar
-        actionBar!!.title = "BlankPage"
+        actionBar!!.title = "Photo"
         actionBar.setDisplayHomeAsUpEnabled(true)
 
         photobuttonvar = findViewById(R.id.photobutton)

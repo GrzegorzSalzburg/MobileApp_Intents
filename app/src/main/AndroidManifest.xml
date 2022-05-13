@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileApp_intent">
         <activity
+            android:name=".StudentResult"
+            android:exported="false"
+            android:parentActivityName=".Student"/>
+        <activity
             android:name=".Picture"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Student"
             android:exported="false"
